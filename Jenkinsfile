@@ -9,13 +9,15 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/your-repo/nodejs-sample-app.git'
+        // Clone the GitHub repository
+        git 'https://github.com/ridha0595/jenkins-sonarqube-1.git'
       }
     }
 
     stage('Build') {
       steps {
         script {
+          // Install Node.js dependencies
           sh 'npm install'
         }
       }
@@ -24,6 +26,7 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         script {
+          // Run SonarQube analysis
           withSonarQubeEnv(SONARQUBE_SERVER) {
             sh 'sonar-scanner'
           }
