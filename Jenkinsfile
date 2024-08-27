@@ -4,7 +4,9 @@ pipeline {
   environment {
     SONARQUBE_SERVER = 'SonarQube'
   }
-
+ tools {
+    nodejs 'NodeJS 22.7.0'  // Name should match the one configured in Global Tool Configuration
+  }
   stages {
     stage('Checkout') {
       steps {
